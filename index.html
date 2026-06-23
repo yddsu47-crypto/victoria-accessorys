@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ویکتوریا اکسسوری</title>
+<style>
+
+body{
+    direction: rtl;
+    font-family: Tahoma;
+    margin: 0;
+    background: #f5f5f5;
+}
+
+header{
+    background:linear-gradient(to left,#ff4f81,#ff9cbc);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.menu{
+    background: #444;
+    text-align: center;
+    padding: 10px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+}
+
+.section{
+    padding:20px;
+}
+
+.product{
+    background:white;
+    padding:15px;
+    margin:15px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.product img{
+    width:200px;
+    border-radius:10px;
+}
+
+.product button{
+    background:#ff4f81;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.product button:hover{
+    background:#e63b6f;
+}
+button{
+    background:#000;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:20px;
+}
+
+#cart{
+    color:#ff4f81;
+    font-weight:bold;
+    font-size:22px;
+}
+
+#search{
+    width:90%;
+    padding:12px;
+    margin:15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+
+#cartItems button{
+    margin-right:10px;
+    padding:5px 10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+
+}
+
+.social-btn{
+    display:inline-block;
+    padding:12px 20px;
+    margin:5px;
+    text-decoration:none;
+    border-radius:10px;
+    background:#ff4f81;
+    color:white;
+    font-weight:bold;
+}
+.social-btn{
+    display:inline-block;
+    padding:12px 20px;
+    margin:5px;
+    text-decoration:none;
+    border-radius:10px;
+    background:#ff4f81;
+    color:white;
+    font-weight:bold;
+}
+footer{
+    background:#ff4f81;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:20px;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:gray;
+    font-size:14px;
+}
+
+.new-price{
+    color:#ff4f81;
+    font-size:20px;
+    font-weight:bold;
+}
+#cartBox{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+</style>
+
+
+
+</head>
+
+<body>
+
+<header>
+<h1>ویکتوریا اکسسوری</h1>
+<p>فروش انواع اکسسوری کیوت و پینترستی </p>
+</header>
+
+<div class="section" id="products">
+
+<div class="menu">
+<a href="#products">محصولات</a>
+<a href="#order">سفارش</a>
+<a href="#contact">تماس با ما</a>
+</div>
+
+<h2>دسته بندی محصولات</h2>
+
+<ul>
+<li>گردنبند</li>
+<li>دستبند</li>
+<li>گوشواره</li>
+<li>انگشتر</li>
+</ul>
+
+<button onclick="filterProducts('all')">همه</button>
+
+<button onclick="filterProducts('necklace')">گردنبند</button>
+
+<button onclick="filterProducts('ring')">انگشتر</button>
+
+<button onclick="filterProducts('bracelet')">دستبند</button>
+
+<h2>محصولات</h2>
+
+<input
+    type="text"
+    id="search"
+    placeholder="جستجوی محصول..."
+    onkeyup="searchProducts()">
+
+
+<div class="product necklace">
+
+    <img src="roz.jpg" width="200">
+
+    <h3>گردنبند رز</h3>
+
+    <p><b>قیمت:</b> 210 هزار تومان</p>
+
+<button onclick="addCart('گردنبند رز',210000)">
+افزودن به سبد خرید
+</button>
+    
+</div>
+
+<div class="product necklace">
+
+
+    <img src="raponzel.jpg" width="200">
+    <h3>گردنبند راپونزل</h3>
+<p class="old-price">230 هزار تومان</p>
+
+<p class="new-price">215 هزار تومان</p>
+
+   
+
+    <label><b>انتخاب رنگ:</b></label>
+
+    <select>
+        <option>صورتی</option>
+            </select>
+
+    <br><br>
+
+<button onclick="addCart('گردنبند راپونزل',215000)">
+افزودن به سبد خرید
+</button>
+
+</div>
+<div class="product ring">
+
+    <img src="angoshtarpapi.jpg" width="200">
+
+    <h3>انگشتر پاپیون</h3>
+
+   <p class="old-price">215 هزار تومان</p>
+
+<p class="new-price">205 هزار تومان</p>
+
+<p style="color:red;">
+🔥 تخفیف ویژه
+</p>
+    <label><b>انتخاب رنگ:</b></label>
+
+<select id="ringColor">
+    <option>صورتی</option>
+    <option>قرمز</option>
+    <option>آبی</option>
+    <option>بنفش</option>
+</select>
+    <br><br>
+
+ <button onclick="addCartWithColor('انگشتر پاپیون',205000,'ringColor')">
+افزودن به سبد خرید
+</button>
+
+</div>
+
+<h3>
+سبد خرید:
+<span id="cart">0</span>
+محصول
+</h3>
+<div id="cartBox">
+
+<h4>🛒 محصولات انتخاب شده</h4>
+
+<div id="cartItems"></div>
+
+<hr>
+
+<h3>
+جمع کل:
+<span id="totalPrice">0</span>
+تومان
+</h3>
+
+<button onclick="clearCart()">
+🗑️ خالی کردن سبد خرید
+</button>
+
+</div>
+
+<div class="section" id="order">
+
+<h2>فرم سفارش</h2>
+
+<input type="text" placeholder="نام و نام خانوادگی">
+
+<input type="text" placeholder="شماره تماس">
+
+<textarea placeholder="آدرس"></textarea>
+
+<button>ثبت سفارش</button>
+
+<h3>ثبت سفارش از طریق</h3>
+
+
+<a class="social-btn"
+href="https://t.me/@Viki_8483"
+target="_blank">
+🎀 تلگرام
+</a>
+
+<a class="social-btn"
+href="https://rubika.ir/@Viki_8483"
+target="_blank">
+🩷 روبیکا
+</a>
+
+</div>
+
+<div class="section" id="contact">
+
+<h2>ارتباط با ما</h2>
+
+
+<a class="social-btn"
+href="https://instagram.com/victoria_accessorys"
+target="_blank">
+🪷 اینستاگرام
+</a>
+
+<br><br>
+
+<a class="social-btn"
+href="https://t.me/victoria_accessorys"
+target="_blank">
+🎀 تلگرام
+</a>
+
+<br><br>
+
+<a class="social-btn"
+href="https://rubika.ir/victoria_accessorys"
+target="_blank">
+🩷 روبیکا
+</a>
+</div>
+
+
+<footer>
+
+💖 Victoria Accessorys 💖
+
+<br><br>
+
+تمامی حقوق محفوظ است.
+
+</footer>
+
+<script>
+
+let cart = 0;
+let total = 0;
+
+let cartProducts = [];
+
+if(localStorage.getItem("cartCount")){
+    cart = Number(localStorage.getItem("cartCount"));
+}
+
+if(localStorage.getItem("cartTotal")){
+    total = Number(localStorage.getItem("cartTotal"));
+}
+
+if(localStorage.getItem("cartProducts")){
+
+    cartProducts =
+    JSON.parse(
+        localStorage.getItem("cartProducts")
+    );
+
+  for(let i = 0; i < cartProducts.length; i++){
+
+    let item = document.createElement("p");
+
+  item.innerHTML =
+cartProducts[i].name +
+' | ' +
+cartProducts[i].price.toLocaleString() +
+' تومان ' +
+'<button onclick="removeItem(this,' +
+cartProducts[i].price +
+')">❌ حذف</button>';
+
+    document
+    .getElementById("cartItems")
+    .appendChild(item);
+}
+}
+
+function addCart(productName, price){
+
+    cart++;
+    total += price;
+
+    document.getElementById("cart").innerText = cart;
+    document.getElementById("totalPrice").innerText = total;
+
+    let item = document.createElement("p");
+
+   item.innerHTML =
+productName +
+' | ' +
+price.toLocaleString() +
+' تومان ' +
+'<button onclick="removeItem(this,' + price + ')">❌ حذف</button>';1
+
+    document.getElementById("cartItems").appendChild(item);
+
+    cartProducts.push({
+    name: productName,
+    price: price
+});
+
+    localStorage.setItem("cartCount", cart);
+    localStorage.setItem("cartTotal", total);
+    localStorage.setItem(
+        "cartProducts",
+        JSON.stringify(cartProducts)
+    );
+}
+function removeItem(button, price){
+
+   
+    button.parentElement.remove();
+
+    cart--;
+    total -= price;
+
+    document.getElementById("cart").innerText = cart;
+    document.getElementById("totalPrice").innerText = total;
+
+localStorage.setItem("cartCount", cart);
+localStorage.setItem("cartTotal", total);
+cartProducts.pop();
+
+localStorage.setItem(
+    "cartProducts",
+    JSON.stringify(cartProducts)
+);
+
+}
+
+
+function searchProducts(){
+
+    let input = document.getElementById("search").value.toLowerCase();
+
+    let products = document.getElementsByClassName("product");
+
+    for(let i=0; i<products.length; i++){
+
+        let name = products[i].getElementsByTagName("h3")[0];
+
+        if(name.innerText.toLowerCase().includes(input)){
+            products[i].style.display = "block";
+        }else{
+            products[i].style.display = "none";
+        }
+
+    }
+}
+function filterProducts(category){
+
+    let products = document.getElementsByClassName("product");
+
+    for(let i=0; i<products.length; i++){
+
+        if(category === "all"){
+            products[i].style.display = "block";
+        }
+
+        else if(products[i].classList.contains(category)){
+            products[i].style.display = "block";
+        }
+
+        else{
+            products[i].style.display = "none";
+        }
+    }
+}
+
+function addCartWithColor(productName, price, colorId){
+
+    let color =
+    document.getElementById(colorId).value;
+
+    addCart(
+        productName + " - " + color,
+        price
+    );
+
+}
+
+document.getElementById("cart").innerText = cart;
+document.getElementById("totalPrice").innerText = total;
+
+function clearCart(){
+
+    cart = 0;
+    total = 0;
+    cartProducts = [];
+
+    document.getElementById("cart").innerText = 0;
+    document.getElementById("totalPrice").innerText = 0;
+    document.getElementById("cartItems").innerHTML = "";
+
+    localStorage.clear();
+}
+</script>
+
+</body>
+
+</html>
