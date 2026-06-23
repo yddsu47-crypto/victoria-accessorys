@@ -302,19 +302,30 @@ footer{
 
 <h2>فرم سفارش</h2>
 
-<input type="text" placeholder="نام و نام خانوادگی">
+<input type="text"
+id="customerName"
+placeholder="نام و نام خانوادگی">
 
-<input type="text" placeholder="شماره تماس">
+<input type="text"
+id="customerPhone"
+placeholder="شماره تماس">
 
-<textarea placeholder="آدرس"></textarea>
+<textarea
+id="customerAddress"
+placeholder="آدرس"></textarea>
 
-<button>ثبت سفارش</button>
+<button onclick="sendOrderTelegram()">
+🎀 ثبت سفارش در تلگرام
+</button>
+
+<button onclick="sendOrderRubika()">
+🩷 ثبت سفارش در روبیکا
+</button>
 
 <h3>ثبت سفارش از طریق</h3>
 
-
 <a class="social-btn"
-href="https://t.me/@Viki_8483"
+href="https://t.me/Viki_8483"
 target="_blank">
 🎀 تلگرام
 </a>
@@ -325,7 +336,6 @@ target="_blank">
 🩷 روبیکا
 </a>
 
-</div>
 
 <div class="section" id="contact">
 
@@ -422,8 +432,7 @@ productName +
 ' | ' +
 price.toLocaleString() +
 ' تومان ' +
-'<button onclick="removeItem(this,' + price + ')">❌ حذف</button>';1
-
+'<button onclick="removeItem(this,' + price + ')">❌ حذف</button>';
     document.getElementById("cartItems").appendChild(item);
 
     cartProducts.push({
@@ -525,7 +534,73 @@ function clearCart(){
     document.getElementById("cartItems").innerHTML = "";
 
     localStorage.clear();
+}   function sendOrderTelegram(){
+
+    if(cartProducts.length === 0){
+        alert("سبد خرید خالی است!");
+        return;
+    }
+
+    let name =
+    document.getElementById("customerName").value;
+
+    let phone =
+    document.getElementById("customerPhone").value;
+
+    let address =
+    document.getElementById("customerAddress").value;
+
+if(name === "" || phone === ""){
+    alert("لطفاً نام و شماره تماس را وارد کنید.");
+    return;
 }
+    let message =
+    "🛍️ سفارش جدید%0A%0A";
+
+    message +=
+    "👤 نام: " + name + "%0A";
+
+    message +=
+    "📞 شماره: " + phone + "%0A";
+
+    message +=
+    "🏠 آدرس: " + address + "%0A%0A";
+
+    message += "محصولات:%0A";
+
+    for(let i=0; i<cartProducts.length; i++){
+
+        message +=
+        "• " +
+        cartProducts[i].name +
+        " - " +
+        cartProducts[i].price +
+        " تومان%0A";
+    }
+
+    message +=
+    "%0A💰 جمع کل: " +
+    total +
+    " تومان";
+
+    window.open(
+        "https://t.me/share/url?url=&text=" + message,
+        "_blank"
+    );
+}
+function sendOrderRubika(){
+
+    alert(
+    "لطفاً اطلاعات و سفارش خود را برای ما در روبیکا ارسال کنید."
+    );
+
+    window.open(
+    "https://rubika.ir/@Viki_8483",
+    "_blank"
+    );
+}
+
+
 </script>
 
 </body>
