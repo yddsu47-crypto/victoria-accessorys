@@ -314,6 +314,105 @@ h2{
 </button>
 
 </div>
+<div class="product other">
+
+<img src="TOPOLI.jpg" alt="تپلی شب‌تاب">
+
+<h3>🌙✨ تپلی شب‌تاب</h3>
+
+<p class="new-price">55,000 تومان</p>
+
+<button onclick="addCart('تپلی شب‌تاب',55000)">
+🛍️ افزودن به سبد خرید
+</button>
+
+</div>
+<div class="product necklace">
+
+<img src="MEHR.jpg" alt="لاکت مهر">
+
+<h3>🖤🤍 لاکت مهر</h3>
+
+<p class="new-price">250,000 تومان</p>
+
+<select id="color2">
+    <option value="مشکی">مشکی</option>
+    <option value="سفید">سفید</option>
+</select>
+
+<button onclick="addCartWithColor('لاکت مهر',250000,'color2')">
+🛍️ افزودن به سبد خرید
+</button>
+
+</div>
+<div class="product bracelet">
+
+<img KARTIR="set1.jpg" alt="ست بنگل و انگشتر">
+
+<h3>✨ ست بنگل و انگشتر</h3>
+
+<p class="new-price">410,000 تومان</p>
+
+<select id="color3">
+    <option value="طلایی">طلایی</option>
+    <option value="نقره‌ای">نقره‌ای</option>
+</select>
+
+<button onclick="addCartWithColor('ست بنگل و انگشتر',410000,'color3')">
+🛍️ افزودن به سبد خرید
+</button>
+
+</div>
+
+<div class="product necklace">
+
+<img src="necklace1.jpg" alt="گردنبند لاکت استیل">
+
+<h3>💖 گردنبند لاکت استیل</h3>
+
+<p class="new-price">230,000 تومان</p>
+
+<select id="size1">
+    <option value="سایز بزرگ">سایز بزرگ</option>
+    <option value="سایز کوچک">سایز کوچک</option>
+</select>
+
+<button onclick="addCartWithColor('گردنبند لاکت استیل',230000,'size1')">
+🛍️ افزودن به سبد خرید
+</button>
+
+</div>
+
+
+<div class="product ring">
+
+<img src="PAP.jpg" alt="انگشتر قلب پاپیون دار">
+
+<h3>🎀 انگشتر قلب پاپیون دار</h3>
+
+<p class="new-price">210,000 تومان</p>
+
+<button onclick="addCart('انگشتر قلب پاپیون دار',210000)">
+🛍️ افزودن به سبد خرید
+</button>
+
+</div>
+
+<div class="product ring">
+
+<img src="TAG.jpg" alt="انگشتر تاج پینترستی">
+
+<h3>👑 انگشتر تاج پینترستی</h3>
+
+<p class="new-price">210,000 تومان</p>
+
+<button onclick="addCart('انگشتر تاج پینترستی',210000)">
+🛍️ افزودن به سبد خرید
+</button>
+
+</div>
+
+
 
 <h3>
 سبد خرید:
@@ -642,6 +741,9 @@ function sendOrderRubika(){
     );
 }
 
+<button onclick="filterProducts('other')">
+🎀 متفرقه
+</button>
 
 </script>
 
