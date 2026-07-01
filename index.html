@@ -8,26 +8,68 @@
 <title>ویکتوریا اکسسوری</title>
 <style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-    direction: rtl;
-    font-family: Tahoma;
-    margin: 0;
-    background: #f5f5f5;
+    direction:rtl;
+    font-family:Tahoma;
+    background:#fff7fa;
+    color:#444;
 }
 header{
     background:linear-gradient(to left,#ff4f81,#ff9cbc);
     color:white;
     text-align:center;
-    padding:25px;
+    padding:30px 20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
+
 .logo img{
     width:150px;
-    border-radius:50%;
-    box-shadow:0 4px 15px rgba(0,0,0,0.2);
-}.menu a{
-    color:white;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+header h1{
+    font-size:34px;
+}
+
+header p{
+    margin-top:8px;
+    font-size:18px;
+}
+.menu{
+    background:white;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.menu a{
     text-decoration:none;
-    margin:15px;
+    color:#ff4f81;
+    margin:0 10px;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    color:#ff1f68;
+}
+
+.filter-btn{
+    text-align:center;
+    margin:20px;
+}
+
+.filter-btn button{
+    margin:8px;
 }
 
 .section{
@@ -35,17 +77,55 @@ header{
 }
 
 .product{
+
     background:white;
-    padding:15px;
+    width:280px;
+
+    display:inline-block;
+
+    vertical-align:top;
+
     margin:15px;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
+
+    padding:18px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.35s;
+
     text-align:center;
+
+}
+.product img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    transition:.4s;
+
 }
 
-.product img{
-    width:200px;
-    border-radius:10px;
+.product img:hover{
+
+    transform:scale(1.05);
+
+}
+
+.product h3{
+
+    margin:15px 0;
+
+    color:#ff4f81;
+
+    font-size:22px;
+
 }
 
 .product button{
@@ -58,30 +138,21 @@ header{
     font-size:16px;
 }
 
+.product:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+}
+
 .product button:hover{
     background:#e63b6f;
 }
-button{
-    background:#000;
-    color:white;
-    border:none;
-    padding:10px;
-    border-radius:5px;
-    cursor:pointer;
-}
-
 input, textarea{
     width:100%;
     padding:10px;
     margin-top:10px;
-}
-
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:20px;
 }
 
 #cart{
@@ -119,16 +190,6 @@ footer{
     color:white;
     font-weight:bold;
 }
-.social-btn{
-    display:inline-block;
-    padding:12px 20px;
-    margin:5px;
-    text-decoration:none;
-    border-radius:10px;
-    background:#ff4f81;
-    color:white;
-    font-weight:bold;
-}
 footer{
     background:#ff4f81;
     color:white;
@@ -142,12 +203,18 @@ footer{
     color:gray;
     font-size:14px;
 }
-
 .new-price{
+
     color:#ff4f81;
-    font-size:20px;
+
+    font-size:22px;
+
     font-weight:bold;
+
+    margin-bottom:15px;
+
 }
+
 #cartBox{
     background:white;
     padding:20px;
@@ -155,18 +222,7 @@ footer{
     border-radius:15px;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
-    background:white;
-    border-radius:15px;
-    padding:15px;
-    margin:15px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
-}
 
-.product:hover{
-    transform:translateY(-8px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
-}
 button{
     background:#ff4f81;
     color:white;
@@ -174,10 +230,12 @@ button{
     padding:10px 15px;
     border-radius:10px;
     cursor:pointer;
-    transition:0.3s;
+    font-size:16px;
+    transition:.3s;
 }
 
 button:hover{
+    background:#e63b6f;
     transform:scale(1.05);
 }
 
@@ -187,13 +245,20 @@ h2{
     margin-bottom:20px;
 }
 
-.product img{
-    border-radius:15px;
-    transition:0.3s;
-}
++select{
 
-.product img:hover{
-    transform:scale(1.05);
+    width:100%;
+
+    padding:10px;
+
+    margin-bottom:15px;
+
+    border-radius:10px;
+
+    border:1px solid #ffc0d4;
+
+    font-size:15px;
+
 }
 
 </style>
@@ -224,20 +289,21 @@ h2{
 
 <h2>دسته بندی محصولات</h2>
 
-<ul>
-<li>گردنبند</li>
-<li>دستبند</li>
-<li>گوشواره</li>
-<li>انگشتر</li>
-</ul>
+<div class="filter-btn">
 
-<button onclick="filterProducts('all')">همه</button>
+    <button onclick="filterProducts('all')">همه</button>
 
-<button onclick="filterProducts('necklace')">گردنبند</button>
+    <button onclick="filterProducts('necklace')">📿 گردنبند</button>
 
-<button onclick="filterProducts('ring')">انگشتر</button>
+    <button onclick="filterProducts('ring')">💍 انگشتر</button>
 
-<button onclick="filterProducts('bracelet')">دستبند</button>
+    <button onclick="filterProducts('bracelet')">✨ دستبند</button>
+
+    <button onclick="filterProducts('other')">🎀 متفرقه</button>
+
+<button onclick="filterProducts('earring')">💎 گوشواره</button>
+
+</div>
 
 <h2>محصولات</h2>
 
@@ -247,171 +313,179 @@ h2{
     placeholder="جستجوی محصول..."
     onkeyup="searchProducts()">
 
-
 <div class="product necklace">
 
-    <img src="roz.jpg" width="200">
+    <img src="roz.jpg" alt="گردنبند رز">
 
-    <h3>گردنبند رز</h3>
+    <h3>🌹 گردنبند رز</h3>
 
-    <p><b>قیمت:</b> 210 هزار تومان</p>
+    <p class="new-price">210,000 تومان</p>
 
-<button onclick="addCart('گردنبند رز',210000)">
-افزودن به سبد خرید
-</button>
-    
+    <button onclick="addCart('گردنبند رز',210000)">
+        🛍️ افزودن به سبد خرید
+    </button>
+
 </div>
 
 <div class="product necklace">
 
+    <img src="raponzel.jpg" alt="گردنبند راپونزل">
 
-    <img src="raponzel.jpg" width="200">
-    <h3>گردنبند راپونزل</h3>
-<p class="old-price">230 هزار تومان</p>
+    <h3>👸 گردنبند راپونزل</h3>
 
-<p class="new-price">215 هزار تومان</p>
+    <p class="old-price">230,000 تومان</p>
 
-   
+    <p class="new-price">215,000 تومان</p>
 
-    <label><b>انتخاب رنگ:</b></label>
+    <p style="color:red;">🔥 تخفیف ویژه</p>
 
-    <select>
-        <option>صورتی</option>
-            </select>
+    <select id="color4">
+        <option value="صورتی">🩷 صورتی</option>
+    </select>
 
-    <br><br>
-
-<button onclick="addCart('گردنبند راپونزل',215000)">
-افزودن به سبد خرید
-</button>
+    <button onclick="addCartWithColor('گردنبند راپونزل',215000,'color4')">
+        🛍️ افزودن به سبد خرید
+    </button>
 
 </div>
+
 <div class="product ring">
 
-    <img src="angoshtarpapi.jpg" width="200">
+    <img src="angoshtarpapi.jpg" alt="انگشتر پاپیون">
 
-    <h3>انگشتر پاپیون</h3>
+    <h3>🎀 انگشتر پاپیون</h3>
 
-   <p class="old-price">215 هزار تومان</p>
+    <p class="old-price">215,000 تومان</p>
 
-<p class="new-price">205 هزار تومان</p>
+    <p class="new-price">205,000 تومان</p>
 
-<p style="color:red;">
-🔥 تخفیف ویژه
-</p>
-    <label><b>انتخاب رنگ:</b></label>
+    <p style="color:red;">🔥 تخفیف ویژه</p>
 
-<select id="ringColor">
-    <option>صورتی</option>
-    <option>قرمز</option>
-    <option>آبی</option>
-    <option>بنفش</option>
-</select>
-    <br><br>
+    <select id="ringColor">
+        <option value="صورتی">🩷 صورتی</option>
+        <option value="قرمز">❤️ قرمز</option>
+        <option value="آبی">💙 آبی</option>
+        <option value="بنفش">💜 بنفش</option>
+    </select>
 
- <button onclick="addCartWithColor('انگشتر پاپیون',205000,'ringColor')">
-افزودن به سبد خرید
-</button>
+    <button onclick="addCartWithColor('انگشتر پاپیون',205000,'ringColor')">
+        🛍️ افزودن به سبد خرید
+    </button>
 
 </div>
+
 <div class="product other">
 
-<img src="TOPOLI.jpg" alt="تپلی شب‌تاب">
+    <img src="TOPOLI.jpg" alt="تپلی شب‌تاب">
 
-<h3>🌙✨ تپلی شب‌تاب</h3>
+    <h3>🌙✨ تپلی شب‌تاب</h3>
 
-<p class="new-price">55,000 تومان</p>
+    <p class="new-price">55,000 تومان</p>
 
-<button onclick="addCart('تپلی شب‌تاب',55000)">
-🛍️ افزودن به سبد خرید
-</button>
+    <button onclick="addCart('تپلی شب‌تاب',55000)">
+        🛍️ افزودن به سبد خرید
+    </button>
 
 </div>
+
+</div><div class="product necklace">
+
+    <img src="MEHR.jpg" alt="لاکت مهر">
+
+    <h3>🖤🤍 لاکت مهر</h3>
+
+    <p class="new-price">250,000 تومان</p>
+
+    <select id="color3">
+        <option value="مشکی">🖤 مشکی</option>
+        <option value="سفید">🤍 سفید</option>
+    </select>
+
+    <button onclick="addCartWithColor('لاکت مهر',250000,'color3')">
+        🛍️ افزودن به سبد خرید
+    </button>
+
+</div>
+
 <div class="product necklace">
 
-<img src="MEHR.jpg" alt="لاکت مهر">
+    <img src="LACETL.jpg" alt="گردنبند لاکت استیل">
 
-<h3>🖤🤍 لاکت مهر</h3>
+    <h3>💖 گردنبند لاکت استیل</h3>
 
-<p class="new-price">250,000 تومان</p>
+    <p class="new-price">230,000 تومان</p>
 
-<select id="color2">
-    <option value="مشکی">مشکی</option>
-    <option value="سفید">سفید</option>
-</select>
+    <select id="size1">
+        <option value="سایز بزرگ">🩷 سایز بزرگ</option>
+        <option value="سایز کوچک">🩷 سایز کوچک</option>
+    </select>
 
-<button onclick="addCartWithColor('لاکت مهر',250000,'color2')">
-🛍️ افزودن به سبد خرید
-</button>
+    <button onclick="addCartWithColor('گردنبند لاکت استیل',230000,'size1')">
+        🛍️ افزودن به سبد خرید
+    </button>
 
 </div>
+
 <div class="product bracelet">
 
-<img KARTIR="set1.jpg" alt="ست بنگل و انگشتر">
+    <img src="BANGELKARTIR.jpg" alt="ست بنگل و انگشتر">
 
-<h3>✨ ست بنگل و انگشتر</h3>
+    <h3>✨ ست بنگل و انگشتر</h3>
 
-<p class="new-price">410,000 تومان</p>
+    <p class="new-price">270,000 تومان</p>
 
-<select id="color3">
-    <option value="طلایی">طلایی</option>
-    <option value="نقره‌ای">نقره‌ای</option>
-</select>
+    <select id="color2">
+        <option value="طلایی">💛 طلایی</option>
+        <option value="نقره‌ای">🤍 نقره‌ای</option>
+    </select>
 
-<button onclick="addCartWithColor('ست بنگل و انگشتر',410000,'color3')">
-🛍️ افزودن به سبد خرید
-</button>
-
-</div>
-
-<div class="product necklace">
-
-<img src="necklace1.jpg" alt="گردنبند لاکت استیل">
-
-<h3>💖 گردنبند لاکت استیل</h3>
-
-<p class="new-price">230,000 تومان</p>
-
-<select id="size1">
-    <option value="سایز بزرگ">سایز بزرگ</option>
-    <option value="سایز کوچک">سایز کوچک</option>
-</select>
-
-<button onclick="addCartWithColor('گردنبند لاکت استیل',230000,'size1')">
-🛍️ افزودن به سبد خرید
-</button>
-
-</div>
-
-
-<div class="product ring">
-
-<img src="PAP.jpg" alt="انگشتر قلب پاپیون دار">
-
-<h3>🎀 انگشتر قلب پاپیون دار</h3>
-
-<p class="new-price">210,000 تومان</p>
-
-<button onclick="addCart('انگشتر قلب پاپیون دار',210000)">
-🛍️ افزودن به سبد خرید
-</button>
+    <button onclick="addCartWithColor('ست بنگل و انگشتر',270000,'color2')">
+        🛍️ افزودن به سبد خرید
+    </button>
 
 </div>
 
 <div class="product ring">
 
-<img src="TAG.jpg" alt="انگشتر تاج پینترستی">
+    <img src="ring2.jpg" alt="انگشتر قلب پاپیون دار">
 
-<h3>👑 انگشتر تاج پینترستی</h3>
+    <h3>🎀 انگشتر قلب پاپیون دار</h3>
 
-<p class="new-price">210,000 تومان</p>
+    <p class="new-price">210,000 تومان</p>
 
-<button onclick="addCart('انگشتر تاج پینترستی',210000)">
-🛍️ افزودن به سبد خرید
-</button>
+    <button onclick="addCart('انگشتر قلب پاپیون دار',210000)">
+        🛍️ افزودن به سبد خرید
+    </button>
 
 </div>
 
+<div class="product ring">
+
+    <img src="ring1.jpg" alt="انگشتر تاج پینترستی">
+
+    <h3>👑 انگشتر تاج پینترستی</h3>
+
+    <p class="new-price">210,000 تومان</p>
+
+    <button onclick="addCart('انگشتر تاج پینترستی',210000)">
+        🛍️ افزودن به سبد خرید
+    </button>
+
+</div>
+
+<div class="product ring">
+
+    <img src="ring3.jpg" alt="انگشتر مراقبتی">
+
+    <h3>🧿 انگشتر مراقبتی</h3>
+
+    <p class="new-price">50,000 تومان</p>
+
+    <button onclick="addCart('انگشتر مراقبتی',50000)">
+        🛍️ افزودن به سبد خرید
+    </button>
+
+</div>
 
 
 <h3>
@@ -476,7 +550,7 @@ href="https://rubika.ir/@Viki_8483"
 target="_blank">
 🩷 روبیکا
 </a>
-
+</div>
 
 <div class="section" id="contact">
 
@@ -741,9 +815,6 @@ function sendOrderRubika(){
     );
 }
 
-<button onclick="filterProducts('other')">
-🎀 متفرقه
-</button>
 
 </script>
 
